@@ -2,13 +2,17 @@ api:
   version: 1.0.0
 
 server:
-  port: 3389
+  port: 8888
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-2ze94ns7xf3ho49rjko.mysql.rds.aliyuncs.com:3306/wordpress2?useSSL=false
+    url: jdbc:mysql://rm-2ze94ns7xf3ho49rjko.mysql.rds.aliyuncs.com:3306/wpdiy?useSSL=false
     username: wordpress
     password: wordpress
   thymeleaf:
     cache: false
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: wang.sj.wpdiy.entity

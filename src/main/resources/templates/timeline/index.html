@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Timeline</title>
+
+    <link rel="stylesheet" th:href="@{/3rd/bootstrap/css/bootstrap.min.css}" >
+    <link rel="stylesheet" th:href="@{/3rd/bootstrap/font-awesome/css/font-awesome.css}" >
+    <link rel="stylesheet" th:href="@{/style/timeline/styles.css}">
+</head>
+<body>
+
+<div class="timeline animated">
+    <div class="timeline-row" th:each="timeline,iterStat : ${ msg }">
+        <div class="timeline-time"><small>Oct 30</small>4:53 PM</div>
+        <div class="timeline-icon">
+            <div class="bg-primary" th:if="${timeline.type=='1'}"><i class="fa fa-pencil"></i></div>
+            <div class="bg-primary" th:if="${timeline.type=='2'}"><i class="fa fa-quote-right"></i></div>
+            <div class="bg-primary" th:if="${timeline.type=='3'}"><i class="fa fa-camera"></i></div>
+            <div class="bg-primary" th:if="${timeline.type=='4'}"><i class="fa fa-video-camera"></i></div>
+        </div>
+        <div class="panel timeline-content">
+            <div class="panel-body" th:if="${timeline.type=='1'}">
+                <h2 th:text="${timeline.title}"></h2>
+                <p th:text="${timeline.contents}"></p>
+            </div>
+            <div class="panel-body" th:if="${timeline.type=='2'}">
+                <blockquote>
+                    <p th:text="${timeline.contents}"></p>
+                    <small th:text="${timeline.auther}"></small>
+                </blockquote>
+            </div>
+            <div class="panel-body" th:if="${timeline.type=='3'}">
+                <h2 th:text="${timeline.title}"></h2>
+                <img class="img-responsive" th:src="${timeline.imgRrl}" />
+                <p th:text="${timeline.contents}"></p>
+            </div>
+            <div class="panel-body" th:if="${timeline.type=='4'}">
+                <h2 th:text="${timeline.title}"></h2>
+                <div class="video-container"><iframe allowfullscreen="" frameborder="0" mozallowfullscreen=""  th:src="${timeline.vedioUrl}" webkitallowfullscreen=""></iframe></div>
+                <p th:text="${timeline.contents}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/commons/jquery-2.2.3.min.js}"></script>
+<script th:src="@{/3rd/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/script/timeline/main.js}"></script>
+</body>
+</html>
