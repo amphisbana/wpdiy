@@ -7,9 +7,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-2ze94ns7xf3ho49rjko.mysql.rds.aliyuncs.com:3306/wpdiy?useSSL=false
-    username: wordpress
-    password: wordpress
+    url: jdbc:mysql://ip:port/wpdiy?useSSL=false
+    username: username
+    password: password
   thymeleaf:
     cache: false
 
